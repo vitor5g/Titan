@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script src="../public/js/jquery-3.3.1.js"></script>
+        <script src="../public/js/jquery.maskMoney.js"></script>
+        <script src="../public/js/jquery.maskMoney.min.js"></script>
+
+        <script>
+
+            $().ready(function () {
+                $("#preco").maskMoney({
+                    allowNegative: true,
+                    thousands: '.',
+                    decimal: ',',
+                    prefix: 'R$ '
+                });
+
+            });
+        </script>
+
+    </head>
+    <body>
+        <div>
+            <h3>Cadastro de Produto</h3>
+            <form method="POST" id="formCadastroProduto" name="formCadastroProduto" action="../services/createProduto.php">
+                <label>Nome</label>
+                <input type="text" maxlength="50" id="nome" name="nome" required="required"/>
+                <br>
+                <br>
+                <label>Preço</label>
+                <input type="text" id="preco" name="preco" required="required"/>
+                <br>
+                <br>
+                <label>Cor</label>
+                <select id="cor" name="cor" required="required">
+                    <option value="AZUL">AZUL</option>
+                    <option value="VERMELHO">VERMELHO</option>
+                    <option value="AMARELO">AMARELO</option>
+                </select>
+                <br>
+                <br>
+                <input type="submit" id="btnSubmit" name="btnSubmit" value="Salvar"/>
+            </form>
+        </div>
+    </body>
+</html>

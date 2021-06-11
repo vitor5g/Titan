@@ -11,7 +11,30 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
+
+-- Copiando estrutura do banco de dados para titan
+CREATE DATABASE IF NOT EXISTS `titan` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `titan`;
+
+-- Copiando estrutura para tabela titan.preco
+CREATE TABLE IF NOT EXISTS `preco` (
+  `IDPRECO` int(11) NOT NULL AUTO_INCREMENT,
+  `PRECO` decimal(10,2) DEFAULT NULL,
+  `FKIDPROD` int(11) NOT NULL,
+  PRIMARY KEY (`IDPRECO`),
+  KEY `fk_id_prod` (`FKIDPROD`),
+  CONSTRAINT `fk_id_prod` FOREIGN KEY (`FKIDPROD`) REFERENCES `produto` (`IDPROD`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 -- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela titan.produto
+CREATE TABLE IF NOT EXISTS `produto` (
+  `IDPROD` int(11) NOT NULL AUTO_INCREMENT,
+  `NOME` varchar(50) DEFAULT NULL,
+  `COR` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`IDPROD`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
 
 -- Exportação de dados foi desmarcado.
 

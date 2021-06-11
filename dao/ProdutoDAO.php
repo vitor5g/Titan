@@ -1,12 +1,16 @@
 <?php
 
-//inclui arquivo
-include_once '../connection/Conexao.php';
-//inclui arquivo
-include_once '../model/Produto.php';
-//inclui arquivo
-include_once '../model/Preco.php';
-include_once 'PrecoDAO.php';
+include_once($_SERVER['DOCUMENT_ROOT'] . "/Titan/connection/Conexao.php");
+include_once($_SERVER['DOCUMENT_ROOT'] . "/Titan/model/Produto.php");
+include_once($_SERVER['DOCUMENT_ROOT'] . "/Titan/model/Preco.php");
+include_once($_SERVER['DOCUMENT_ROOT'] . "/Titan/dao/PrecoDAO.php");
+////inclui arquivo
+//include_once '../connection/Conexao.php';
+////inclui arquivo
+//include_once '../model/Produto.php';
+////inclui arquivo
+//include_once '../model/Preco.php';
+//include_once 'PrecoDAO.php';
 
 //cria classe ProdutoDAO
 class ProdutoDAO {
@@ -57,7 +61,7 @@ class ProdutoDAO {
 
             //executa o sql preparado
             $stmt->execute();
-            
+
             $preco = new Preco();
             $preco->setFKIDPROD($dto->getIDPROD());
             $preco->setPRECO($dto->getPRECOPROD());

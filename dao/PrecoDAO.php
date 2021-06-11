@@ -1,9 +1,10 @@
 <?php
-
-//inclui arquivo
-include_once ROOT_PATH . '../connection/Conexao.php';
-//inclui arquivo
-include_once ROOT_PATH . '../model/Preco.php';
+include_once($_SERVER['DOCUMENT_ROOT'] . "/Titan/connection/Conexao.php");
+include_once($_SERVER['DOCUMENT_ROOT'] . "/Titan/model/Preco.php");
+////inclui arquivo
+//include_once '../connection/Conexao.php';
+////inclui arquivo
+//include_once '../model/Preco.php';
 
 //cria classe PrecoDAO
 class PrecoDAO {

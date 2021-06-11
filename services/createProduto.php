@@ -1,21 +1,28 @@
 <?php
-define('ROOT_PATH', dirname(__FILE__));
-include_once "../model/Produto.php";
-include_once "../model/Preco.php";
-include_once "../dao/ProdutoDAO.php";
-include_once "../dao/PrecoDAO.php";
+
+include_once($_SERVER['DOCUMENT_ROOT'] . "/Titan/model/Produto.php");
+include_once($_SERVER['DOCUMENT_ROOT'] . "/Titan/model/Preco.php");
+include_once($_SERVER['DOCUMENT_ROOT'] . "/Titan/dao/ProdutoDAO.php");
+include_once($_SERVER['DOCUMENT_ROOT'] . "/Titan/dao/PrecoDAO.php");
+//include_once "../model/Produto.php";
+//include_once "../model/Preco.php";
+//include_once "../dao/ProdutoDAO.php";
+//include_once "../dao/PrecoDAO.php";
 
 try {
-
     $nome = ($_POST['nome']);
-    $preco = trim(str_replace(",", ".", explode("R$", $_POST['preco'])[1]));
+    $preco = trim(explode("R$", $_POST['preco'])[1]);
+    if (strlen($preco) >= 8) {
+        $preco = str_replace(",", ".", str_replace(".", "", $preco));
+    }
     $cor = ($_POST['cor']);
     $produto = new Produto();
+
 
     //Desconto de 20%
     if ($cor == "AZUL" || $cor == "VERMELHO") {
         $porcentagem = 20;
-        $preco = $preco - ($preco * $porcentagem / 100);
+        $preco = floatval($preco - ($preco * $porcentagem / 100));
 //        $preco = number_format($preco, 2, ",", ".");
         //Desconto de 10%
     } elseif ($cor == "AMARELO") {

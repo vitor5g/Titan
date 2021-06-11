@@ -45,6 +45,7 @@ and open the template in the editor.
                         document.getElementById('nome').value = dados[0].NOME;
                         document.getElementById('cor').value = dados[0].COR;
                         document.getElementById('cor').disabled = true;
+                        document.getElementById('hiddenCor').value = dados[0].COR;
                     },
                     error: function (error) {
                         //roda aqui se der errado
@@ -67,7 +68,8 @@ and open the template in the editor.
                     <option value="">Selecione um produto</option>
                     <?php
                     //inclui arquivo
-                    include_once ROOT_PATH .'/dao/ProdutoDAO.php';
+//                    include_once '../dao/ProdutoDAO.php';
+                     include_once($_SERVER['DOCUMENT_ROOT'] . "/Titan/dao/ProdutoDAO.php");
 
                     $produtos = ProdutoDAO::read('', '');
 
@@ -92,6 +94,7 @@ and open the template in the editor.
                     <option value="VERMELHO">VERMELHO</option>
                     <option value="AMARELO">AMARELO</option>
                 </select>
+                <input type="hidden" id="hiddenCor" name="hiddenCor" />
                 <br>
                 <br>
                 <input type="submit" id="btnSubmit" name="btnSubmit" value="Salvar"/>

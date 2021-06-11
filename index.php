@@ -45,9 +45,8 @@ and open the template in the editor.
             </thead>
             <tbody>
                 <?php
-                define('ROOT_PATH', dirname(__FILE__));
-                //inclui arquivo
-                include_once ROOT_PATH . '/dao/PrecoDAO.php';
+                include_once($_SERVER['DOCUMENT_ROOT'] . "/Titan/dao/PrecoDAO.php");
+                
 
                 $produtos = PrecoDAO::read('true', '');
 

@@ -19,7 +19,8 @@ and open the template in the editor.
                     <option value="">Selecione um produto</option>
                     <?php
                     //inclui arquivo
-                    include_once ROOT_PATH . '/dao/ProdutoDAO.php';
+//                    include_once '../dao/ProdutoDAO.php';
+                    include_once($_SERVER['DOCUMENT_ROOT'] . "/Titan/dao/ProdutoDAO.php");
 
                     $produtos = ProdutoDAO::read('', '');
 

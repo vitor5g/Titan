@@ -1,7 +1,8 @@
 <?php
-
-include_once ROOT_PATH . "/model/Preco.php";
-include_once ROOT_PATH . "/dao/PrecoDAO.php";
+include_once($_SERVER['DOCUMENT_ROOT'] . "/Titan/model/Preco.php");
+include_once($_SERVER['DOCUMENT_ROOT'] . "/Titan/dao/PrecoDAO.php");
+//include_once "../model/Preco.php";
+//include_once "../dao/PrecoDAO.php";
 
 
 try {

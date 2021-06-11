@@ -1,7 +1,8 @@
 <?php
-
-include_once ROOT_PATH . "/model/Produto.php";
-include_once ROOT_PATH . "/dao/ProdutoDAO.php";
+include_once($_SERVER['DOCUMENT_ROOT'] . "/Titan/model/Produto.php");
+include_once($_SERVER['DOCUMENT_ROOT'] . "/Titan/dao/ProdutoDAO.php");
+//include_once ROOT_PATH . "/model/Produto.php";
+//include_once ROOT_PATH . "/dao/ProdutoDAO.php";
 try {
 
     $id = (int) ($_POST['selectedProduto']);
